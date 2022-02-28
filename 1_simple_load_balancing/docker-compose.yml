@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  balancer:
+    build: .
+    ports:
+      - 80:80
+    links:
+      - backend_1
+      - backend_2
+  backend_1:
+    build: 
+      dockerfile: Dockerfile.backend1
+    ports:
+      - 80
+  backend_2:
+    build: 
+      dockerfile: Dockerfile.backend2
+    ports:
+      - 80
